@@ -7,7 +7,7 @@ function App() {
   const [text, setText] = useState('0');
 
   const handleNumberClick = ( e ) => {
-    //console.log(e.target.value + text);
+    //console.log(e.target.value + ' is clicked ' + text);
     if(text == '0' && e.target.value != '.'){
       setText(e.target.value);
       return;
@@ -28,7 +28,7 @@ function App() {
   };
 
   const handleSymbolClick = ( e ) => {
-    //console.log(e.target.value + text);
+    //console.log(e.target.value + ' is clicked ' + text);
     if(e.target.value == '-' && text == '0'){
       setText('-');
       return;
@@ -36,9 +36,9 @@ function App() {
     if(text == '0'){
       return;
     } 
-    if(e.target.value == '-'){
-      setText(text + '(' + e.target.value);
-    }
+    // if(e.target.value == '-'){
+    //   setText(text + '(' + e.target.value);
+    // }
     let text2 = (String(text));
     //console.log(text2);
     if(text2.slice(-1) == '+' || text2.slice(-1) == '*' || text2.slice(-1) == '/'){
@@ -87,15 +87,19 @@ function App() {
     <div className="flex justify-center items-center min-h-screen">
       <img src="/Vector 1.png" alt="Calculator" className="absolute top-0 left-0 object-cover z-0 ml-[10%]" />
       <div className="bg-[#323232] text-[#323232] w-[414px] h-[736px] p-4 shadow-xl z-10"> 
-        <div className="flex flex-col justify-end h-[150px] mb-2">
-          <div className="text-3xl text-gray-300 pr-4 overflow-hidden whitespace-nowrap text-ellipsis text-left [direction:rtl]">{preText}</div>
-
-<div className="flex items-end justify-end mt-2 pr-4 overflow-hidden">
-  <span className="text-4xl text-white">=</span>
-  <span className="text-6xl text-white ml-4 w-full overflow-hidden whitespace-nowrap text-ellipsis text-left [direction:rtl]">{text}</span>
+       <div className="flex flex-col justify-end h-[150px] mb-2">
+  <div className="text-3xl text-gray-300 pr-4 overflow-hidden whitespace-nowrap text-ellipsis text-left [direction:rtl]">
+    {preText}
+  </div>
+  <div className="flex items-end justify-end mt-2 pr-4 overflow-hidden">
+    <span className="text-4xl text-white">=</span>
+    <span className="text-6xl text-white ml-4 w-full overflow-hidden whitespace-nowrap text-left [direction:rtl]">
+      {text}
+    </span>
+  </div>
 </div>
 
-        </div>
+
         <div className='h-[1px] w-[100%] bg-[#74EBD5] mt-2 mb-[20px] item-center justify-center'></div>
         
         <div className="grid grid-cols-4 gap-4 mt-2">
@@ -129,4 +133,4 @@ function App() {
   )
 }
 
-export default App
+export default App  
